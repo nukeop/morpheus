@@ -1,9 +1,9 @@
-import { search } from 'ddgimages-node';
+import google from 'googlethis';
 import { CommandInteraction, MessageEmbed } from 'discord.js';
 
 export const execute = async (interaction: CommandInteraction) => {
   const query = interaction.options.getString('query') as string;
-  const result = (await search(query))[0]?.image;
+  const result = (await google.image(query, { safe: false }))[0]?.url;
   if (result) {
     await interaction.reply({
       embeds: [new MessageEmbed().setTitle(query).setImage(result)],

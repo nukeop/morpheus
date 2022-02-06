@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { Command } from '../commandHandler';
 import { execute } from './controllers/images';
 
-const command: Command = {
+export default {
   data: new SlashCommandBuilder()
     .setName('image')
     .setDescription('Image search')
@@ -14,6 +14,4 @@ const command: Command = {
     )
     .toJSON(),
   execute,
-};
-
-export default command;
+} as Command;

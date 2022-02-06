@@ -1,6 +1,6 @@
-import { default as alerta } from './alerta';
-import { default as image } from './image';
-import { default as img } from './img';
-import { default as yt } from './yt';
+import alerta from './alerta';
+import image from './image';
+import yt from './yt';
+import slots from './slots';
 
-export default [alerta, image, img, yt];
+export default [alerta, image, slots, yt];

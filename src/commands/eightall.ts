@@ -1,19 +1,18 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { Command } from '../commandHandler';
-import { execute } from './controllers/images';
 
-const command: Command = {
+import { execute } from './controllers/eightball';
+
+export default {
   data: new SlashCommandBuilder()
-    .setName('img')
-    .setDescription('Image search')
+    .setName('8ball')
+    .setDescription('Ask a question')
     .addStringOption((option) =>
       option
-        .setName('query')
-        .setDescription('The query to search for')
+        .setName('question')
+        .setDescription('The question to ask')
         .setRequired(true)
     )
     .toJSON(),
   execute,
-};
-
-export default command;
+} as Command;
