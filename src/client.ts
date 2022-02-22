@@ -13,12 +13,17 @@ export class BotClient {
     });
 
     client.on('interactionCreate', async (interaction) => {
-      if (!interaction.isCommand()) return;
-
-      const command = handler.get(interaction.commandName);
-
-      if (!command) return;
       try {
+        if (!interaction.isCommand()) return;
+      } catch (error) {
+        Logger.error(error);
+        return;
+      }
+
+      try {
+        const command = handler.get(interaction.commandName);
+
+        if (!command) return;
         await command.execute(interaction);
       } catch (error) {
         Logger.error(error);
